@@ -92,7 +92,7 @@ const LandingPage = () => {
         <a href="https://apps.apple.com/us/app/%D9%86%D9%88%D9%86-%D8%A8%D8%B1%D8%A7%D9%86%D8%AF/id1580474195" target="_blank" rel="noopener noreferrer">
           <img src="/images/app-store-badge.png" alt="Download on the App Store" className="store-badge" />
         </a>
-        <a href="/files/noonbrand.apk" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/uc?id=1xXO8gJ7nROZeDvDB94Lggsw25YwUb-Q_" target="_blank" rel="noopener noreferrer">
           <img src="/images/huawei-badge.png" alt="Download from Us" className="store-badge" />
         </a>
       </div>
