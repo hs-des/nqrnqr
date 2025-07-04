@@ -122,6 +122,18 @@ const LandingPage = () => {
     trackEvent('navigation_click', { section: sectionName });
   };
 
+  const handleDownloadClick = (platform) => {
+    trackEvent('download_click', { platform });
+  };
+
+  const handleContactClick = () => {
+    trackEvent('contact_click', { method: 'whatsapp' });
+  };
+
+  const handleSocialClick = (platform) => {
+    trackEvent('social_click', { platform });
+  };
+
   return (
     <div className={`landing-page ${darkMode ? "dark" : "light"} ${isLoaded ? "loaded" : ""}`}>
       {/* Header with Dark Mode Toggle */}
@@ -255,7 +267,7 @@ const LandingPage = () => {
               rel="noopener noreferrer"
               className="store-link"
               aria-label="Download from Google Play Store"
-              onClick={() => trackEvent('download_click', { platform: 'google_play' })}
+              onClick={() => { handleDownloadClick('google_play'); }}
             >
               <img 
                 src="/images/google-play-badge.png" 
@@ -270,7 +282,7 @@ const LandingPage = () => {
               rel="noopener noreferrer"
               className="store-link"
               aria-label="Download from Apple App Store"
-              onClick={() => trackEvent('download_click', { platform: 'app_store' })}
+              onClick={() => { handleDownloadClick('app_store'); }}
             >
               <img 
                 src="/images/app-store-badge.png" 
@@ -285,7 +297,7 @@ const LandingPage = () => {
               rel="noopener noreferrer"
               className="store-link"
               aria-label="Download APK file"
-              onClick={() => trackEvent('download_click', { platform: 'apk' })}
+              onClick={() => { handleDownloadClick('apk'); }}
             >
               <img 
                 src="/images/huawei-badge.png" 
@@ -331,7 +343,7 @@ const LandingPage = () => {
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Contact customer support on WhatsApp"
-              onClick={() => trackEvent('contact_click', { method: 'whatsapp' })}
+              onClick={() => { handleContactClick(); }}
             >
               <FaWhatsapp className="whatsapp-icon" />
               <span>تواصل مع خدمة العملاء</span>
@@ -355,7 +367,7 @@ const LandingPage = () => {
               rel="noopener noreferrer" 
               className="social-link facebook"
               aria-label="Follow us on Facebook"
-              onClick={() => trackEvent('social_click', { platform: 'facebook' })}
+              onClick={() => { handleSocialClick('facebook'); }}
             >
               <FaFacebook />
             </a>
@@ -365,7 +377,7 @@ const LandingPage = () => {
               rel="noopener noreferrer" 
               className="social-link instagram"
               aria-label="Follow us on Instagram"
-              onClick={() => trackEvent('social_click', { platform: 'instagram' })}
+              onClick={() => { handleSocialClick('instagram'); }}
             >
               <FaInstagram />
             </a>
@@ -375,7 +387,7 @@ const LandingPage = () => {
               rel="noopener noreferrer" 
               className="social-link tiktok"
               aria-label="Follow us on TikTok"
-              onClick={() => trackEvent('social_click', { platform: 'tiktok' })}
+              onClick={() => { handleSocialClick('tiktok'); }}
             >
               <FaTiktok />
             </a>
