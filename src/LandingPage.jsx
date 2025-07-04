@@ -6,6 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { usePerformance } from "./hooks/usePerformance";
 
+// Debug: Check if icons are loaded
+console.log('Icons loaded:', { FaFacebook, FaInstagram, FaTiktok });
+
 const LandingPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,6 +63,11 @@ const LandingPage = () => {
     });
 
     return () => observer.disconnect();
+  }, []);
+
+  // Make all sections visible by default for now
+  useEffect(() => {
+    setVisibleSections(new Set(['hero-section', 'slider-section', 'download-section', 'contact-section', 'social-section']));
   }, []);
 
   const toggleDarkMode = useCallback(() => {
@@ -324,6 +332,11 @@ const LandingPage = () => {
               <h3>Mobile Optimized</h3>
               <p>Perfect experience on all devices</p>
             </div>
+            <div className="feature-item">
+              <div className="feature-icon">🚚</div>
+              <h3>Fast Delivery</h3>
+              <p>Quick and reliable delivery to your doorstep</p>
+            </div>
           </div>
         </div>
       </section>
@@ -370,6 +383,7 @@ const LandingPage = () => {
               onClick={() => { handleSocialClick('facebook'); }}
             >
               <FaFacebook />
+              <span className="sr-only">Facebook</span>
             </a>
             <a 
               href="https://www.instagram.com/noonbrands.iq" 
@@ -380,6 +394,7 @@ const LandingPage = () => {
               onClick={() => { handleSocialClick('instagram'); }}
             >
               <FaInstagram />
+              <span className="sr-only">Instagram</span>
             </a>
             <a 
               href="https://www.tiktok.com/@noonbrand.iq" 
@@ -390,6 +405,7 @@ const LandingPage = () => {
               onClick={() => { handleSocialClick('tiktok'); }}
             >
               <FaTiktok />
+              <span className="sr-only">TikTok</span>
             </a>
           </div>
         </div>
